@@ -6,7 +6,7 @@ const nextConfig = {
             protocol: 'https',
             hostname: '*.wikiart.org',
             port: '',
-            pathname: '/images/**',
+            pathname: '**/images/**',
             search: '',
           },
         ],
