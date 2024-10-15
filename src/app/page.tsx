@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { ArtImage } from './components/ArtImage';
 import { Description } from './components/Description';
-import { CaretIcon } from './components/CaretIcon';
+import { ActiveState } from './components/ActiveState';
 // import { paintingsData } from './components/data';
 
 export default async function Home() {
@@ -32,7 +32,7 @@ export default async function Home() {
   return (
     <div className="font-[family-name:var(--font-inter)] text-gray-900">
       <main className="">
-        <div className="flex items-center justify-center block group">
+        <div className="flex items-center justify-center block bg-red-0 group">
           <div className="h-screen w-screen relative">
             <ArtImage
               image={image}
@@ -41,10 +41,7 @@ export default async function Home() {
               width={width}
               height={height}
             />
-            <div className="absolute left-0 right-0 bottom-0 text-center mx-auto my-4 opacity-0 group-hover:opacity-100 transition-opacity">
-              <p className="text-gray-500 text-xs pb-2">scroll to learn more</p>
-              <CaretIcon className="w-6 h-6 mx-auto fill-gray-500 animate-bounce"/>
-            </div>
+            <ActiveState />
           </div>
         </div>
         <div className="bg-gradient-to-b from-white to-gray-50 h-24 w-full block"></div>
@@ -52,7 +49,7 @@ export default async function Home() {
           <div className="max-w-5xl mx-auto px-8 pt-12 pb-36">
             <h1 className="text-4xl leading-normal">{title}</h1>
             <h2 className="text-3xl text-gray-500 leading-normal">{artistName}</h2>
-            <Suspense fallback={<div text-gray-400 text-base leading-relaxed pt-8>Loading...</div>}> 
+            <Suspense fallback={<div className="text-gray-400 text-base leading-relaxed pt-8">Loading...</div>}> 
               <Description id={id} />
             </Suspense>
           </div>
@@ -64,7 +61,6 @@ export default async function Home() {
           </footer>
         </div>
       </main>
-      
     </div>
   );
 }
