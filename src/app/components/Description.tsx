@@ -1,4 +1,3 @@
-// import { paintingData } from './data';
 import bbobHTML from '@bbob/html'
 import presetHTML5 from '@bbob/preset-html5'
 
@@ -8,7 +7,6 @@ type Description = {
 
 const createStringFromList = (list: string[]) => (
   list
-    .filter((word: any) => typeof word === 'string')
     .map((word: string) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`)
     .join(', ')
 );
@@ -32,10 +30,6 @@ export const Description = async ({
   const paintingCall = await fetch(`https://www.wikiart.org/en/api/2/Painting?id=${id}&imageFormat=HalfHD`);
   const painting = await paintingCall.json();
   const { description, genres, styles, media, url, artistUrl } = painting;
-  console.log('painting', painting);
-
-  /* only use if you hit data limit */
-  // const { description, genres, styles, media, url, artistUrl } = paintingData;
 
   const genresString = createStringFromList(genres);
   const stylesString = createStringFromList(styles);

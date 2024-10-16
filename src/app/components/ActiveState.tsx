@@ -5,15 +5,12 @@ import { CaretIcon } from './CaretIcon';
 export const ActiveState = () => {
   const { request, release, isLocked, isSupported } = useWakeLock({
     onError(e, type) {
-      // addLogMessage(`ERROR (${type}) ${e.message}`, "error");
       console.error("Wake Lock Error: REQUEST: ", e, type);
     },
     onLock(lock) {
       console.info("Wake Lock Acquired: ", lock);
-      // addLogMessage(`Locked`, "lock");
     },
     onRelease(lock) {
-      // addLogMessage(`Released`, "release");
       console.info("Wake Lock Released: ", lock);
     },
   });
