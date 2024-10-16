@@ -3,31 +3,23 @@ import useWakeLock from "react-use-wake-lock";
 import { CaretIcon } from './CaretIcon';
 
 export const ActiveState = () => {
-  let checked = false;
-  let clickHandler = () => {};
-  let showOption = true;
-  console.log('activestate re-render');
-
-  // only run wakeLock on the client side
-  if (typeof window !== 'undefined') {
-    const { request, release, isLocked, isSupported } = useWakeLock({
-      onError(e, type) {
-        // addLogMessage(`ERROR (${type}) ${e.message}`, "error");
-        console.error("Wake Lock Error: REQUEST: ", e, type);
-      },
-      onLock(lock) {
-        console.info("Wake Lock Acquired: ", lock);
-        // addLogMessage(`Locked`, "lock");
-      },
-      onRelease(lock) {
-        // addLogMessage(`Released`, "release");
-        console.info("Wake Lock Released: ", lock);
-      },
-    });
-    checked = isLocked;
-    clickHandler = isLocked ? release : request;
-    showOption = isSupported;
-  }
+  const { request, release, isLocked, isSupported } = useWakeLock({
+    onError(e, type) {
+      // addLogMessage(`ERROR (${type}) ${e.message}`, "error");
+      console.error("Wake Lock Error: REQUEST: ", e, type);
+    },
+    onLock(lock) {
+      console.info("Wake Lock Acquired: ", lock);
+      // addLogMessage(`Locked`, "lock");
+    },
+    onRelease(lock) {
+      // addLogMessage(`Released`, "release");
+      console.info("Wake Lock Released: ", lock);
+    },
+  });
+  const checked = isLocked;
+  const clickHandler = isLocked ? release : request;
+  const showOption = isSupported;
   
   return (
     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-sm text-gray-900">
@@ -38,7 +30,7 @@ export const ActiveState = () => {
           <span className="ml-4 max-w-64">Turn on to keep your screen awake (and keep this browser tab active)</span>
         </label>
       </div>)}
-      <div className="absolute right-0 top-0 m-4">
+      <div className="absolute right-0 top-0 m-5">
         <p className="text-right">Refresh to see new art</p>
       </div>
       <div className="absolute left-0 right-0 bottom-0 text-center mx-auto my-4y">

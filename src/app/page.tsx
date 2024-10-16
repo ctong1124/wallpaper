@@ -1,8 +1,12 @@
 import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import { ArtImage } from './components/ArtImage';
 import { Description } from './components/Description';
-import { ActiveState } from './components/ActiveState';
 // import { paintingsData } from './components/data';
+
+const DynamicActiveState = dynamic(() =>
+  import('./components/ActiveState').then((mod) => mod.ActiveState), { ssr: false });
+
 
 export default async function Home() {
   const data = await fetch(`https://www.wikiart.org/en/Api/2/login?accessCode=${process.env.API_ACCESS_CODE}&secretCode=${process.env.API_SECRET_CODE}`);
@@ -41,7 +45,7 @@ export default async function Home() {
               width={width}
               height={height}
             />
-            <ActiveState />
+            <DynamicActiveState />
           </div>
         </div>
         <div className="bg-gradient-to-b from-white to-gray-50 h-24 w-full block"></div>
