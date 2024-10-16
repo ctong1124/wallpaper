@@ -6,6 +6,8 @@ This was a quick React Server Component, Next.js app router practice project. Ar
 npm install
 npm run dev
 ```
+(developed on node v20.6.0)
+
 
 To test locally with live data, create a `.env` file in the root. Go to https://www.wikiart.org/en/App/GetApi to obtain keys and add them to your .env file.
 ```
