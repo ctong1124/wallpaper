@@ -15,6 +15,11 @@ export default async function Home() {
   const popularPaintings = await paintingsCall.json();
   const randomPainting = popularPaintings?.data?.[Math.floor(Math.random() * popularPaintings.data.length)];
 
+  // to test with dummy data, comment all code above in this function and add top top of file:
+  // import { paintingsData } from './components/testData'
+  // uncomment line below:
+  // const randomPainting = paintingsData?.[Math.floor(Math.random() * paintingsData.length)];
+
   const {
     title,
     artistName,

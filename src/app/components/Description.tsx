@@ -31,6 +31,11 @@ export const Description = async ({
   const painting = await paintingCall.json();
   const { description, genres, styles, media, url, artistUrl } = painting;
 
+  // to test with dummy data, comment all code above in this function and add to top of code:
+  // import { paintingData } from './components/testData'
+  // uncomment line below:
+  // const { description, genres, styles, media, url, artistUrl } = paintingData;
+
   const genresString = createStringFromList(genres);
   const stylesString = createStringFromList(styles);
   const mediaString = createStringFromList(media);
