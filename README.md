@@ -1,4 +1,5 @@
 This was a quick React Server Component, Next.js app router practice project. Art wallpaper is a museum display-like page that keeps your computer awake. 
+<img width="1828" alt="Screen Shot 2024-10-15 at 9 01 26 PM" src="https://github.com/user-attachments/assets/a525288b-a373-4bf1-a725-7a70ecdb68c0">
 
 ## Getting Started
 ```bash
@@ -32,3 +33,7 @@ Ideas for future feature additions and improvements:
 - Tests
 - Prettier
 - Build and deploy
+
+
+## Preview of UI
+![site gif](https://github.com/user-attachments/assets/e82eeb57-1d55-4c06-82c2-935e969dbb0d)
